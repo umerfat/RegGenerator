@@ -8,20 +8,20 @@ Bootstrap(app)
 wsgi_app = app.wsgi_app
 
 # We import routes here from routes.py file
-#from routes import *
-@app.route('/')
-def hello():
-    return """ <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Flask</title>
-    </head>
-    <body>
-        <div> <h2>Welcome to flask</h2> </div>
-    </body>
-</html>
-    """
+from routes import *
+#@app.route('/')
+# def hello():
+#     return """ <!DOCTYPE html>
+# <html lang="en">
+#     <head>
+#         <meta charset="utf-8" />
+#         <title>Flask</title>
+#     </head>
+#     <body>
+#         <div> <h2>Welcome to flask</h2> </div>
+#     </body>
+# </html>
+#     """
 # Launching our server
 
 if __name__ == '__main__':
