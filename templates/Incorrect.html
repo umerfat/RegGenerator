@@ -1,12 +1,34 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Sorry, you are wrong</title>-->
+<!--</head>-->
+<!--<body>-->
+    <!--<h2>Sorry, your answer is wrong</h2>-->
+    <!--<div>The answer is: {{ answer }}</div>-->
+    <!--<div>You said: {{ submittedAnswer }}</div>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sorry, you are wrong</title>
-</head>
+<html>
 <body>
-    <h2>Sorry, your answer is wrong</h2>
-    <div>The answer is: {{ answer }}</div>
-    <div>You said: {{ submittedAnswer }}</div>
+
+<p>The test() method returns true if it finds a match, otherwise it returns false.</p>
+<p>Click the button to search a string for the character "e".</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var str = "Enter code SAVE20 to get 20% off!";
+  var patt = new RegExp("Enter\s*code\s*");
+  var res = patt.test(str);
+  document.getElementById("demo").innerHTML = res;
+}
+</script>
+
 </body>
 </html>
