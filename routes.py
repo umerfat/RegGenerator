@@ -22,7 +22,7 @@ def hello():
             result = numberRep.findall(stringIn)
             # define desired replacements here in the dictionary
             dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
-                          "&": "\&", "!": "\!", "^": "\^", "\\": "\\\\", ".": "\\.", "-": "\-"}
+                          "&": "\&", "!": "\!", "^": "\^", "\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+"}
             # use these three lines to do the replacement
             dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
             pattern = re.compile("|".join(dictionary.keys()))
@@ -35,7 +35,7 @@ def hello():
             result = numberRep.findall(stringIn)
             # define desired replacements here in the dictionary
             dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
-                          "&": "\&", "!": "\!", "^": "\^","\\": "\\\\", ".": "\\.", "-": "\-"}
+                          "&": "\&", "!": "\!", "^": "\^","\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+"}
             # use these three lines to do the replacement
             dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
             pattern = re.compile("|".join(dictionary.keys()))
