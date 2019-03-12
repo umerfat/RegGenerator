@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>RegGenerator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
 	<style>
@@ -18,84 +19,114 @@
 			margin: 0 auto;
 		}
 		.main-heading{
-			font-size: 25px;
-			color: #218838;
+			font-size: 20px;
+			color: #212121;
 			margin-bottom: 0px;
 			padding: 20px;
 		}
 		.margin-top-20{
 			margin-top: 20px;
 		}
-		.margin-bottom-10{
-			margin-bottom: -10px;
+		.nav-heading{
+			display: block;
+			width: 100%;
+			background: transparent;
+			color: #fff;
+			text-align: center;
+			font-size: 30px;
 		}
-		.inline-block{
-			display: inline-block;
+		.reg-nav{
+			margin-bottom: 20px;
+			/* change nav bg color */
+			background: #212121;
+		}
+		.pt-50{
+			padding-top: 20px;
+		}
+		.reg-nav-footer{
+			margin-top: 20px;
+			/* change footer bg color */
+			background: #212121;
+			position:absolute;
+			bottom:0;
+			width:100%;
+		}
+		.footer-heading{
+			display: block;
+			width: 100%;
+			background: transparent;
+			color: #fff;
+			text-align: center;
+			font-size: 16px;
 		}
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="wrapper">
-			<div class="row">
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<div class="heading text-center">
-						<h1 class="main-heading">RegGenerator</h1>
-					</div>
-				</div>
+	<div class="wrapper-body">
+		<nav class="navbar navbar-expand-sm reg-nav">
+			<div class="nav-heading">
+				RegGenerator
 			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<form method="post">
-						<div class="row">
-							<div class="col-sm-12 col-md-12 col-lg-12">
-								<div class="form-group">
-									<label for="string" class="sr-only">Enter the String</label>
-									<input name="string" type="text" class="form-control" id="string"  placeholder=" Enter String here..." required/>
+		</nav>
+		<div class="container">
+			<div class="wrapper">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<form method="post">
+							<div class="row">
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="form-group">
+										<label for="string" class="sr-only">Enter the String</label>
+										<input name="string" type="text" class="form-control" id="string"  placeholder=" Enter String here..." required/>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<button type="submit" class="btn btn-success" name="normal_regex"  value="normal_regex">Normal Regex</button>
+									<button type="submit" class="btn btn-primary" name="normal_regex" value="myra_regex">Myra Regex</button>
 								</div>
 							</div>
-							<div class="col-sm-12 col-md-12 col-lg-12">
-								<button type="submit" class="btn btn-success" name="normal_regex"  value="normal_regex">Normal Regex</button>
-								<button type="submit" class="btn btn-primary" name="normal_regex" value="myra_regex">Myra Regex</button>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
-			</div>
-			<div class="row">
+				<div class="row">
 
-				<!--<div class="col-sm-12 col-md-12 col-lg-12">-->
+					<!--<div class="col-sm-12 col-md-12 col-lg-12">-->
 					<!--<div class="heading text-center">-->
-						<!--<div class="inline-block">Original String:</div>-->
-						<!--<span>{{ originalString }}</span>-->
+					<!--<div class="inline-block">Original String:</div>-->
+					<!--<span>{{ originalString }}</span>-->
 					<!--</div>-->
-				<!--</div>-->
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<div class="heading text-center">
-						<h3 class="main-heading margin-top-20 margin-bottom-10">Original String</h3>
+					<!--</div>-->
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="heading text-center">
+							<h3 class="main-heading margin-top-20 margin-bottom-10">Original String</h3>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<textarea style="width: 100%; margin-top: 20px" rows="3" cols="50" readonly id="textarea_original">{{ originalString }}</textarea>
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<div class="heading text-center">
-						<h3 class="main-heading margin-top-20 margin-bottom-10">Generated Regex</h3>
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<textarea style="width: 100%;" rows="3" cols="50" readonly id="textarea_original">{{ originalString }}</textarea>
 					</div>
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<textarea style="width: 100%; margin-top: 20px" rows="3" cols="50" readonly id="textarea_regex">{{ regexGenerated }}</textarea>
-				</div>
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<button type="button" class="btn btn-light" onclick="copy()">Copy To Clipboard</button>
-					<button type="button" class="btn btn-info"><a href="https://regexr.com/" target="_blank" style="color: #fff;text-decoration:none">Validate On Regxr</a></button>
-					<button type="button" class="btn btn-warning" onclick="validate()">Validate Here</button>
-
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="heading text-center">
+							<h3 class="main-heading margin-top-20 margin-bottom-10">Generated Regex</h3>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<textarea style="width: 100%;" rows="3" cols="50" readonly id="textarea_regex">{{ regexGenerated }}</textarea>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-12 pt-50">
+						<button type="button" class="btn btn-light" onclick="copy()">Copy To Clipboard</button>
+						<button type="button" class="btn btn-info"><a href="https://regexr.com/" target="_blank" style="color: #fff;text-decoration:none">Validate On Regxr</a></button>
+						<button type="button" class="btn btn-warning" onclick="validate()">Validate Here</button>
+					</div>
 				</div>
 			</div>
 		</div>
+		<nav class="navbar navbar-expand-sm reg-nav-footer">
+			<div class="footer-heading">
+				Team ST
+			</div>
+		</nav>
 	</div>
 </body>
 </html>

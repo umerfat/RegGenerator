@@ -22,7 +22,7 @@ def hello():
             result = numberRep.findall(stringIn)
             # define desired replacements here in the dictionary
             dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
-                          "&": "\&", "!": "\!", "^": "\^", "\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<"}
+                          "&": "\&", "!": "\!", "^": "\^", "\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<", ",": "\,", "?": "\?"}
             # use these three lines to do the replacement
             dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
             pattern = re.compile("|".join(dictionary.keys()))
@@ -35,13 +35,13 @@ def hello():
             result = numberRep.findall(stringIn)
             # define desired replacements here in the dictionary
             dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
-                          "&": "\&", "!": "\!", "^": "\^","\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<"}
+                          "&": "\&", "!": "\!", "^": "\^","\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<", ",": "\,", "?": "\?"}
             # use these three lines to do the replacement
             dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
             pattern = re.compile("|".join(dictionary.keys()))
             regex = pattern.sub(lambda m: dictionary[re.escape(m.group(0))], stringIn)
             regex = regex.replace("\\", "\\\\")
             regex = '".*' + regex + '.*"'
-            return render_template('StringForm.html',originalString = stringIn, regexGenerated=regex)
+            return render_template('StringForm.html',originalString=stringIn, regexGenerated=regex)
     else:
         return "<h2>Invalid request</h2>"
