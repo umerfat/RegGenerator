@@ -16,7 +16,7 @@ def hello():
         return render_template('StringForm.html')
     elif request.method == 'POST':
         # read form data and save it
-        if request.form['normal_regex'] == 'normal_regex':
+        if request.form['regex'] == 'regex':
             stringIn = request.form['string']
             numberRep = re.compile('([\d.,]+)')
             result = numberRep.findall(stringIn)
@@ -26,22 +26,23 @@ def hello():
             # use these three lines to do the replacement
             dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
             pattern = re.compile("|".join(dictionary.keys()))
-            regex = pattern.sub(lambda m: dictionary[re.escape(m.group(0))], stringIn)
-            return render_template('StringForm.html', originalString = stringIn, regexGenerated=regex)
-        elif request.form['normal_regex'] == 'myra_regex':
-            #do some magic here
-            stringIn = request.form['string']
-            numberRep = re.compile('([\d.,]+)')
-            result = numberRep.findall(stringIn)
-            # define desired replacements here in the dictionary
-            dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
-                          "&": "\&", "!": "\!", "^": "\^","\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<", ",": "\,", "?": "\?"}
-            # use these three lines to do the replacement
-            dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
-            pattern = re.compile("|".join(dictionary.keys()))
-            regex = pattern.sub(lambda m: dictionary[re.escape(m.group(0))], stringIn)
-            regex = regex.replace("\\", "\\\\")
-            regex = '".*' + regex + '.*"'
-            return render_template('StringForm.html',originalString=stringIn, regexGenerated=regex)
+            normalRegex = pattern.sub(lambda m: dictionary[re.escape(m.group(0))], stringIn)
+            myraRegex = '".*' + normalRegex + '.*"'
+            return render_template('StringForm.html', originalString = stringIn, normalRegex = normalRegex, myraRegex = myraRegex)
+        # elif request.form['normal_regex'] == 'myra_regex':
+        #     #do some magic here
+        #     stringIn = request.form['string']
+        #     numberRep = re.compile('([\d.,]+)')
+        #     result = numberRep.findall(stringIn)
+        #     # define desired replacements here in the dictionary
+        #     dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
+        #                   "&": "\&", "!": "\!", "^": "\^","\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<", ",": "\,", "?": "\?"}
+        #     # use these three lines to do the replacement
+        #     dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
+        #     pattern = re.compile("|".join(dictionary.keys()))
+        #     regex = pattern.sub(lambda m: dictionary[re.escape(m.group(0))], stringIn)
+        #     regex = regex.replace("\\", "\\\\")
+        #     regex = '".*' + regex + '.*"'
+        #     return render_template('StringForm.html',originalString=stringIn, regexGenerated=regex)
     else:
         return "<h2>Invalid request</h2>"
