@@ -22,13 +22,13 @@ def hello():
             result = numberRep.findall(stringIn)
             # define desired replacements here in the dictionary
             dictionary = {" ": "\s*", "/": "\/", "%": "\%", "$": "\$", ":": "\:", "@": "\@", "#": "\#",
-                          "&": "\&", "!": "\!", "^": "\^", "\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<", ",": "\,", "?": "\?"}
+                          "&": "\&", "!": "\!", "^": "\^", "\\": "\\\\", ".": "\\.", "-": "\-", "+": "\+", ")": "\)", "(": "\(", "[": "\[", "]": "\]", "{": "\{", "}": "\}", "_": "\_", "~": "\~", "=": "\=", ">": "\>", "<": "\<", ",": "\,", "?": "\?", "*": "\*"}
             # use these three lines to do the replacement
             dictionary = dict((re.escape(k), v) for k, v in dictionary.items())
             pattern = re.compile("|".join(dictionary.keys()))
             normalRegex = pattern.sub(lambda m: dictionary[re.escape(m.group(0))], stringIn)
             myraRegex = normalRegex.replace("\\", "\\\\")
-            myraRegex = '".*' + myraRegex + '.*"'
+            myraRegex = '".*' + myraRegex + '.*";'
             return render_template('StringForm.html', originalString = stringIn, normalRegex = normalRegex, myraRegex = myraRegex)
         # elif request.form['normal_regex'] == 'myra_regex':
         #     #do some magic here
