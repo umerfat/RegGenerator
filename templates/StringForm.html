@@ -181,25 +181,25 @@ let textarea = document.getElementById("textarea_string");
   		textarea.select();
   		document.execCommand("copy");}
 }
-<!--function validate() {-->
-  		<!--//let textarea = document.getElementById("textarea_original");-->
-  		<!--//textarea.select();-->
-  		<!--alert("This feature will be live soon.")-->
+function validate() {
+  		//let textarea = document.getElementById("textarea_original");
+  		//textarea.select();
+  		alert("This feature will let you perform validation in the same page and will be live soon.")
+}
+<!--function validate(){-->
+<!--if (!$.trim($("#textarea_normal").val())) {-->
+<!--alert("Ahaaa! You can't validate empty Regex");-->
 <!--}-->
-function validate(){
-if (!$.trim($("#textarea_normal").val())) {
-alert("Ahaaa! You can't validate empty Regex");
-}
-else{
-document.getElementById("insertIFrame").innerHTML =
-'<div class="col-sm-12 col-md-12 col-lg-12"><div class="heading text-center"><h3 class="main-heading margin-top-5 margin-bottom-10">Test Your Regex Here</h3></div></div><iframe id="loadRegexWeb" data-src="http://regexstorm.net/tester" src="about:blank" width="100%" height="500px" style="background:#ffffff"></iframe>';
- loadRegexValidator()
-}
-}
-	function loadRegexValidator() {
-    var iframe = $("#loadRegexWeb");
-    iframe.attr("src", iframe.data("src"));
-}
+<!--else{-->
+<!--document.getElementById("insertIFrame").innerHTML =-->
+<!--'<div class="col-sm-12 col-md-12 col-lg-12"><div class="heading text-center"><h3 class="main-heading margin-top-5 margin-bottom-10">Test Your Regex Here</h3></div></div><iframe id="loadRegexWeb" data-src="http://regexstorm.net/tester" src="about:blank" width="100%" height="500px" style="background:#ffffff"></iframe>';-->
+ <!--loadRegexValidator()-->
+<!--}-->
+<!--}-->
+	<!--function loadRegexValidator() {-->
+    <!--var iframe = $("#loadRegexWeb");-->
+    <!--iframe.attr("src", iframe.data("src"));-->
+<!--}-->
 if (!$.trim($("#textarea_normal").val())) {
     // textarea is empty or contains only white-space
 }
