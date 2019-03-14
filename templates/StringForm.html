@@ -155,19 +155,31 @@
 {{ super() }}
 <script>
 	function copyMyra() {
-  		let textarea = document.getElementById("textarea_regex");
+	if (!$.trim($("#textarea_regex").val())) {
+alert("Ahaaa! You can't copy empty Regex");
+}
+else{
+let textarea = document.getElementById("textarea_regex");
   		textarea.select();
-  		document.execCommand("copy");
+  		document.execCommand("copy");}
 }
 	function copyNormal() {
-  		let textarea = document.getElementById("textarea_normal");
+  			if (!$.trim($("#textarea_normal").val())) {
+alert("Ahaaa! You can't copy empty Regex");
+}
+else{
+let textarea = document.getElementById("textarea_normal");
   		textarea.select();
-  		document.execCommand("copy");
+  		document.execCommand("copy");}
 }
 	function copyString() {
-  		let textarea = document.getElementById("textarea_string");
+  			if (!$.trim($("#textarea_string").val())) {
+alert("Ahaaa! You can't validate empty String");
+}
+else{
+let textarea = document.getElementById("textarea_string");
   		textarea.select();
-  		document.execCommand("copy");
+  		document.execCommand("copy");}
 }
 <!--function validate() {-->
   		<!--//let textarea = document.getElementById("textarea_original");-->
